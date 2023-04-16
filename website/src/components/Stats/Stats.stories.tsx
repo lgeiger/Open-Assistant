@@ -1,4 +1,4 @@
-import { ComponentMeta } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import { Stats as StatsType } from "src/types/Stat";
 
 import { Stats } from "./Stats";
@@ -182,6 +182,6 @@ const data: StatsType = {
 
 export default {
   title: "Stats",
-} as ComponentMeta<typeof Stats>;
+} as Meta<typeof Stats>;
 
 export const Default = () => <Stats data={data} />;

@@ -1,11 +1,11 @@
-import { ComponentMeta } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { LikertButtons } from "./LikertButtons";
 import { SubmitButton } from "./Submit";
 
 export default {
   title: "Buttons",
-} as ComponentMeta<typeof SubmitButton>;
+} as Meta<typeof SubmitButton>;
 
 export const Submit = () => <SubmitButton>Submit</SubmitButton>;
 

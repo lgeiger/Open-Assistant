@@ -1,4 +1,4 @@
-import type { ComponentStory } from "@storybook/react";
+import type { StoryFn } from "@storybook/react";
 import { SessionContext } from "next-auth/react";
 import React from "react";
 
@@ -10,7 +10,7 @@ export default {
   component: UserMenu,
 };
 
-const Template: ComponentStory<any> = (args) => {
+const Template: StoryFn<any> = (args) => {
   const { session } = args;
   return (
     <SessionContext.Provider value={session}>
@@ -23,5 +23,7 @@ const Template: ComponentStory<any> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = { session: { data: { user: { name: "StoryBook user" } }, status: "authenticated" } };
+export const Default = {
+  render: Template,
+  args: { session: { data: { user: { name: "StoryBook user" } }, status: "authenticated" } },
+};

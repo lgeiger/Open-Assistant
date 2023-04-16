@@ -1,4 +1,4 @@
-import type { ComponentStory } from "@storybook/react";
+import type { StoryFn } from "@storybook/react";
 import { SessionContext } from "next-auth/react";
 import React from "react";
 import { FlagsProvider } from "react-feature-flags";
@@ -16,7 +16,7 @@ export default {
   decorators: [RouterDecorator],
 };
 
-const Template: ComponentStory<any> = (args) => {
+const Template: StoryFn<any> = (args) => {
   const { session } = args;
   return (
     <SessionContext.Provider value={session}>
@@ -27,16 +27,19 @@ const Template: ComponentStory<any> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  session: {
-    data: {
-      user: {
-        name: "StoryBook user",
+export const Default = {
+  render: Template,
+
+  args: {
+    session: {
+      data: {
+        user: {
+          name: "StoryBook user",
+        },
       },
+      status: "authenticated",
     },
-    status: "authenticated",
+    transparent: false,
+    borderClass: undefined,
   },
-  transparent: false,
-  borderClass: undefined,
 };

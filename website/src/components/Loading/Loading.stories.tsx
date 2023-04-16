@@ -1,5 +1,3 @@
-import type { ComponentStory } from "@storybook/react";
-
 import { LoadingScreen } from "./LoadingScreen";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -11,9 +9,8 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof LoadingScreen> = (args) => <LoadingScreen {...args} />;
+export const Default = {};
 
-export const Default = Template.bind({});
-
-export const WithText = Template.bind({});
-WithText.args = { text: "Loading Text ..." };
+export const WithText = {
+  args: { text: "Loading Text ..." },
+};

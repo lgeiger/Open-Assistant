@@ -1,4 +1,4 @@
-import { Story } from "@storybook/react";
+import { StoryFn } from "@storybook/react";
 import React from "react";
 
 import { SessionDecorator } from "../../../.storybook/decorators";
@@ -11,7 +11,7 @@ export default {
   decorators: [SessionDecorator],
 };
 
-const Template: Story<any> = ({
+const Template: StoryFn<any> = ({
   emoji,
   count,
   ...rest
@@ -26,28 +26,37 @@ const Template: Story<any> = ({
   return <MessageEmojiButton emoji={{ name: emoji, count }} onClick={undefined} {...rest} />;
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  emoji: "+1",
-  count: 7,
-  checked: false,
-  userIsAuthor: false,
-  disabled: false,
-  userReacted: true,
+export const Default = {
+  render: Template,
+
+  args: {
+    emoji: "+1",
+    count: 7,
+    checked: false,
+    userIsAuthor: false,
+    disabled: false,
+    userReacted: true,
+  },
 };
 
-export const BigNumber = Template.bind({});
-BigNumber.args = {
-  emoji: "+1",
-  count: 999,
-  checked: false,
-  showCount: true,
+export const BigNumber = {
+  render: Template,
+
+  args: {
+    emoji: "+1",
+    count: 999,
+    checked: false,
+    showCount: true,
+  },
 };
 
-export const Checked = Template.bind({});
-Checked.args = {
-  emoji: "+1",
-  count: 2,
-  checked: true,
-  showCount: true,
+export const Checked = {
+  render: Template,
+
+  args: {
+    emoji: "+1",
+    count: 2,
+    checked: true,
+    showCount: true,
+  },
 };

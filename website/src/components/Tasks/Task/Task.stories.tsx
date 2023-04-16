@@ -1,4 +1,4 @@
-import { Story } from "@storybook/react";
+import { StoryFn } from "@storybook/react";
 import React from "react";
 import { Task } from "src/components/Tasks/Task";
 import { TaskInfos } from "src/components/Tasks/TaskTypes";
@@ -12,7 +12,7 @@ const story = {
   decorators: [SessionDecorator],
 };
 
-const Template: Story = ({ providerValue }) => {
+const Template: StoryFn = ({ providerValue }) => {
   return (
     <TaskContext.Provider value={providerValue}>
       <Task />
@@ -64,7 +64,9 @@ const exampleProviderValue = {
   },
 };
 
-export const Default = Template.bind({});
-Default.args = { providerValue: exampleProviderValue };
+export const Default = {
+  render: Template,
+  args: { providerValue: exampleProviderValue },
+};
 
 export default story;
